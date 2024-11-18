@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './toDO.css';
+import './toDOList.css';
 
-function ToDO () {
+function ToDOList () {
     const [ tasks, setTasks] = useState({
         id: 1,
         text: 'Lab Experiements',
@@ -37,13 +37,19 @@ setTasks(tasks.map((task => {
 })))
 }
     return(
-    <>   
-        <div>Just Testing</div>
-        <div className='todo-item'>THIS IS JUST A TEST OF ITEM CSS 
-            <p>This is the right way</p>
-        </div>
-    </>  
+    <div className='todo-list'>
+        {tasks.map(task => (
+            <ToDOItem 
+            key={task.id}
+            task={task}
+            deleteTask={deleteTask}
+            toggleCompleted={toggleCompleted}/>
+        ))}
+        <input value={text}
+        onChange={e => setText(e.target.value)}/>
+        <button onClick={() => addTasks(text)}>Add</button>
+    </div> 
     );
 }
 
-export default ToDO;
+export default ToDOList;
