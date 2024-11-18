@@ -1,5 +1,17 @@
-* {
+:root {
     font-size: 45px;
     color: aqua;
     background-color: black;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    color: brown;
+}
+.todo-item p {
+    color: blue;
+    text-decoration: line-through;
 }
